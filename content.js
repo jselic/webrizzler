@@ -59,10 +59,11 @@ function callOpenAI(text,len) {
                 "messages": [
                     {
                         "role": "system",
-                        "content": "look at this example:\n" +
-                            "\"Yo, did you peep Jake's vibe at the party last night? That dude's on some next-level sigma energy, just moving through the crowd like he owns the place. And his fit was straight rizz, like he stepped outta a fashion mag. I swear, he's got that fanum tax on lock, making everyone else look basic in comparison. It's like he's living in his own dimension, no cap.\"\n" +
-                            "\n" +
-                            "Now generate each prompt that you are provided from now on using the same style"
+                        "content": "Rework my texts in gen alpha lingo. Emphasise the use of words such as 'bussin','straight up','was like','ratiod','for real','no cap','yapping', 'boomer', 'fanum tax', 'alpha', 'rizz', 'rizzler', 'gyat', 'skibidy', 'skibidy toilet', 'showing meat', 'ohio', streamers lingo and similar. You should seek to include as many of gen alpha phrases as possible. Boomers need not understand."
+                    },
+                    {
+                        "role": "system",
+                        "content": "If given a very short text or a name you can keep it as is or give it a short gen alpha nickname."
                     },
                     {
                         "role": "user",
