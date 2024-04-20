@@ -1,5 +1,5 @@
 
-/* toggle in label designing */
+/* bg off */
 .toggle {
     position : relative ;
     display : inline-block;
@@ -10,7 +10,7 @@
     background-color: #E57373;
 }
 
-/* After slide changes */
+/* button off */
 .toggle:after {
     content: '';
     position: absolute;
@@ -25,13 +25,13 @@
 
 }
 
-/* Checkbox checked effect */
+/* button on */
 .checkbox:checked + .toggle::after {
     left : 49px;
     background-image: url(wojak-pointing-2781830877.gif);
 }
 
-/* Checkbox checked toggle label bg color */
+/* bg on */
 .checkbox:checked + .toggle {
     background-color: #66BB6A;
 }
@@ -44,3 +44,17 @@
 *{
     font-family: "Comic Sans MS"
 }
+
+#commie{
+    color: red;
+}
+html{
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+/*#bg{
+    background-color:yellow;
+    border-radius: 25px;
+}*/
