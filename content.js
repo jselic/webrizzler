@@ -1,43 +1,29 @@
-function callOpenAI() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://openai-proxy.sellestial.com/api/completions', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Authorization', 'Bearer bufeh5byo4y5'); // Replace with your actual API token
+function replaceText(node) {
+    function replaceInChunk(text) {
+        //TUKI SE KLIČE NA API
+        return text.replace(/\bkilled\b/g, 'fanum taxed').replace(/\bworkers\b/g, 'sigmas');
+    }
 
-    xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            var response = JSON.parse(xhr.responseText);
-            var ai_content = response.choices[0].message.content;
-            console.log("AI:");
-            console.log(ai_content);
-        } else {
-            console.error('Request failed with status:', xhr.status);
+    function processChunk(text) {
+        const tokens = text.split(/\s+/);
+        let result = '';
+        let chunk = '';
+
+        for (let i = 0; i < tokens.length; i++) {
+            chunk += tokens[i] + ' ';
+            if (i % 50 === 49 || i === tokens.length - 1) {
+                result += replaceInChunk(chunk);
+                chunk = '';
+            }
         }
-    };
+        return result;
+    }
 
-    xhr.onerror = function () {
-        console.error('Request failed');
-    };
-
-    var messages = [
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        }
-    ];
-
-    var user_message = "generate me an interesting story about oranges"; // Set the desired prompt here
-    messages.push({
-        "role": "user",
-        "content": user_message
-    });
-
-    var params = JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: messages
-    });
-
-    xhr.send(params);
+    if (node.nodeType === Node.TEXT_NODE) {
+        node.nodeValue = processChunk(node.nodeValue);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+        node.childNodes.forEach(replaceText);
+    }
 }
 
-callOpenAI();
+replaceText(document.body);
