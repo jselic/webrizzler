@@ -9,22 +9,28 @@
 <body>
     <div id="bg">
         <h1>Webrizzler!</h1>
-        Off/On
-        <input type="checkbox" id="switch" class="checkbox" onclick=replaceText />
-        <label for="switch" class="toggle"></label>
+        <div id="slider">
+            <div style="margin: auto;">
+                <span>Off/On</span>
+            </div>
+            <div id="internal-slider">
+                <input type="checkbox" id="switch" class="checkbox" onclick=replaceText />
+                <label for="switch" class="toggle"></label>
+            </div>
+        </div>
         <br>
         <br>
         <label for="slang-dropdown">Choose a slang:</label>
         <select name="slang" id="slang-dropdown">
-            <option value="alpha">Gen Alpha slang</option>
-            <option value="zoomer">Zoomer slang</option>
-            <option value="coorpo">Coorpo shill</option>
+            <option value="alpha">Gen Alpha</option>
+            <option value="zoomer">Zoomer</option>
+            <option value="coorpo">Corpo speak</option>
             <option value="pirate">Yarrrr, pirate talk</option>
             <option value="seuss">Dr. Seuss</option>
             <option value="cowboy">Cowboy</option>
             <option value="posh">Posh</option>
             <option value="dog">Dog</option>
-            <option value="commie" id="commie">Commie speak</option>
+            <option value="commie" id="commie">Proletarian</option>
         </select>
     </div>
 </body>
