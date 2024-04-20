@@ -45,6 +45,7 @@ function replaceText(node) {
 }
 
 replaceText(document.body);
+
 function callOpenAI(text,len) {
     return new Promise((resolve, reject) => {
         fetch('https://openai-proxy.sellestial.com/api/chat/completions', {
