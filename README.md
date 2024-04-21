@@ -12,5 +12,6 @@ INSTALATION
 - pull repository
 - go to google chrome extensions
 - manage extensions
+- toggle on developer mode
 - Select "Load unpacked" and select directory   webrizzler
 
