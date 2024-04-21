@@ -1,6 +1,6 @@
 var selectedCategory = "alpha";
 var stacking = false;
-var originalContent;
+let originalContent;
 var alreadyFired = false;
 
 if (document.readyState !== 'loading' && !alreadyFired) {
@@ -14,28 +14,23 @@ if (document.readyState !== 'loading' && !alreadyFired) {
             console.log(data.tasks);
             console.log('Retrieved data:');
             if (data.tasks === true){
-                replaceText(document.body);
+                chrome.storage.sync.get('category', function(data) {
+                    if (chrome.runtime.lastError) {
+                        console.error('Error retrieving storage:', chrome.runtime.lastError);
+                    } else {
+                        console.log(data.category);
+                        console.log('Retrieved data:');
+                        selectedCategory = data.category;
+                        replaceText(document.body);
+
+                    }
+                });
             }
         }
     });
 }
 
 
-function resetContent(content) {
-    return new Promise((resolve, reject) => {
-        // Perform asynchronous operation to reset the variable
-        setTimeout(() => {
-            // Simulating asynchronous operation completion
-            document.body = content;
-            resolve(); // Resolve the promise when done
-        }, 2000); // Simulating 2 seconds delay
-    });
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-
-});
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -43,15 +38,7 @@ chrome.runtime.onMessage.addListener(
             selectedCategory = request.name;
             console.log(stacking);
             if (!stacking){
-                console.log("NOOOOOOOO NO")
-
-                document.body.parentNode.replaceChild(originalContent, document.body);
-                console.log(document.body);
-                while (document.body !== originalContent){
-                    console.log("waiting");
-                }
-                replaceText(document.body);
-
+                location.reload();
             }
             else{
                 replaceText(document.body);
@@ -65,6 +52,9 @@ chrome.runtime.onMessage.addListener(
         if( request.message === "stacking" ) {
             stacking = request.stacking;
             console.log(stacking);
+            if (!stacking){
+                location.reload();
+            }
         }
     }
 );
@@ -82,16 +72,7 @@ chrome.runtime.onMessage.addListener(
                     console.log('Retrieved data:');
                     if (data.tasks === true){
                         if (!stacking){
-                            console.log("NOOOOOOOO NO");
-
-                            document.body.parentNode.replaceChild(originalContent, document.body);
-                            console.log(document.body);
-
-                            while (document.body !== originalContent){
-                                console.log("waiting");
-                            }
-                            replaceText(document.body);
-
+                            location.reload();
                         }
                         else{
                             replaceText(document.body);
@@ -118,7 +99,7 @@ function countWords(str) {
 
 
 function replaceText(node) {
-    var maxcalls = 10;
+    var maxcalls = 50;
 
     var paragraphs = document.querySelectorAll('p');
 // Get all header elements (h1 to h6)

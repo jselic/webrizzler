@@ -14,6 +14,7 @@ async function popupCategory(valueHah) {
         var activeTab = tabs[0];
         chrome.tabs.sendMessage(activeTab.id, {"message": "category", "name":valueHah});
     });
+    await saveCategory(valueHah)
 }
 
 async function stacking(valueHah) {
@@ -59,6 +60,14 @@ async function saveTasks(valueHah) {
             console.log('Retrieved data:');
         }
     });
+}
 
-
+async function saveCategory(valueHah) {
+    chrome.storage.sync.set({ category: valueHah }, function() {
+        if (chrome.runtime.lastError) {
+            console.error('Error setting storage:', chrome.runtime.lastError);
+        } else {
+            console.log('Storage set successfully');
+        }
+    });
 }
