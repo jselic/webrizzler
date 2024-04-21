@@ -58,3 +58,11 @@ html{
     background-color:yellow;
     border-radius: 25px;
 }*/
+
+#slider{
+    display: flex;
+    flex-direction: column;
+}
+#internal-slider{
+    margin: auto;
+}
