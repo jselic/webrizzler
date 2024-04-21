@@ -6,3 +6,11 @@ While our IT solutions are applicable in a wider market, our application is simp
 
 Our app uses OpenAI's API, to transform text into a more "user-friendy" form, using the popular ChatGPT tool. 
 To run our app, you need to export the repository as a google chrome plugin.
+
+INSTALATION
+
+-pull repository
+-go to google chrome extensions
+-manage extensions
+-Select "Load unpacked" and select directory   webrizzler
+
