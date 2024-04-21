@@ -1,3 +1,16 @@
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action === 'stateChanged') {
+        console.log("AAAAAAAAAAAAAAAAAAA LESGOOOOOOOOOO");
+        const extensionEnabled = request.enabled;
+
+        if (extensionEnabled){
+            replaceText(document.body);
+        }
+    }
+        // Do something based on the new state
+});
+
 function countWords(str) {
     // Remove leading and trailing whitespace
     str = str.trim();
@@ -31,20 +44,19 @@ function replaceText(node) {
 
     paragraphs.forEach(function(paragraph) {
         if (maxcalls>0){
-            changeTextContent(paragraph);
+            //changeTextContent(paragraph);
             maxcalls--;
         }
     });
 
     headers.forEach(function(header) {
         if (maxcalls>0) {
-            changeTextContent(header);
+            //changeTextContent(header);
             maxcalls--;
         }
     });
 }
 
-replaceText(document.body);
 
 function callOpenAI(text,len) {
     return new Promise((resolve, reject) => {

@@ -5,27 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Popup</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="popup.js"></script>
 </head>
 <body>
-    <div id="bg">
-        <h1>Webrizzler!</h1>
-        Off/On
-        <input type="checkbox" id="switch" class="checkbox" onclick=replaceText />
-        <label for="switch" class="toggle"></label>
-        <br>
-        <br>
-        <label for="slang-dropdown">Choose a slang:</label>
-        <select name="slang" id="slang-dropdown">
-            <option value="alpha">Gen Alpha slang</option>
-            <option value="zoomer">Zoomer slang</option>
-            <option value="coorpo">Coorpo shill</option>
-            <option value="pirate">Yarrrr, pirate talk</option>
-            <option value="seuss">Dr. Seuss</option>
-            <option value="cowboy">Cowboy</option>
-            <option value="posh">Posh</option>
-            <option value="dog">Dog</option>
-            <option value="commie" id="commie">Commie speak</option>
-        </select>
-    </div>
+<div id="bg">
+    <h1>Webrizzler!</h1>
+    Off/On
+    <input type="checkbox" id="switch" class="checkbox"/>
+    <label for="switch" class="toggle"></label>
+    <br>
+    <br>
+    <label for="slang-dropdown">Choose a slang:</label>
+    <select name="slang" id="slang-dropdown">
+        <option value="alpha">Gen Alpha slang</option>
+        <option value="zoomer">Zoomer slang</option>
+        <option value="coorpo">Coorpo shill</option>
+        <option value="pirate">Yarrrr, pirate talk</option>
+        <option value="seuss">Dr. Seuss</option>
+        <option value="cowboy">Cowboy</option>
+        <option value="posh">Posh</option>
+        <option value="dog">Dog</option>
+        <option value="commie" id="commie">Commie speak</option>
+    </select>
+
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+    <script src="options.js"></script>
+
+</div>
 </body>
 </html>
