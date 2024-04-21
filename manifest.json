@@ -5,7 +5,8 @@
     "description": "Beta to sigma",
     "permissions": [
       "activeTab",
-      "<all_urls>"
+      "<all_urls>",
+      "storage"
     ],
     "browser_action": {
       "default_popup": "popup.html"

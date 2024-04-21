@@ -1,15 +1,15 @@
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.action === 'stateChanged') {
-        console.log("AAAAAAAAAAAAAAAAAAA LESGOOOOOOOOOO");
-        const extensionEnabled = request.enabled;
-
-        if (extensionEnabled){
-            replaceText(document.body);
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "start" ) {
+            start();
         }
     }
-        // Do something based on the new state
-});
+);
+
+function start(){
+    console.log("hahahah");
+}
 
 function countWords(str) {
     // Remove leading and trailing whitespace
