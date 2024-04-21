@@ -9,8 +9,8 @@ To run our app, you need to export the repository as a google chrome plugin.
 
 INSTALATION
 
--pull repository
--go to google chrome extensions
--manage extensions
--Select "Load unpacked" and select directory   webrizzler
+- pull repository
+- go to google chrome extensions
+- manage extensions
+- Select "Load unpacked" and select directory   webrizzler
 
