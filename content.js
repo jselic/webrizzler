@@ -1,15 +1,28 @@
 
+
+
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        if( request.message === "start" ) {
-            start();
+        if( request.message === "activate" ) {
+            chrome.storage.sync.get('tasks', function(data) {
+                if (chrome.runtime.lastError) {
+                    console.error('Error retrieving storage:', chrome.runtime.lastError);
+                } else {
+                    console.log(data.tasks);
+                    console.log('Retrieved data:');
+                    if (data.tasks === true){
+                        console.log("TRUEEE");
+                        replaceText(document.body);
+                    }else{
+                        location.reload();
+                    }
+                }
+            });
         }
     }
 );
 
-function start(){
-    console.log("hahahah");
-}
 
 function countWords(str) {
     // Remove leading and trailing whitespace
@@ -44,14 +57,14 @@ function replaceText(node) {
 
     paragraphs.forEach(function(paragraph) {
         if (maxcalls>0){
-            //changeTextContent(paragraph);
+            changeTextContent(paragraph);
             maxcalls--;
         }
     });
 
     headers.forEach(function(header) {
         if (maxcalls>0) {
-            //changeTextContent(header);
+            changeTextContent(header);
             maxcalls--;
         }
     });
