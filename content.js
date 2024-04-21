@@ -118,7 +118,7 @@ function countWords(str) {
 
 
 function replaceText(node) {
-    var maxcalls = 50;
+    var maxcalls = 10;
 
     var paragraphs = document.querySelectorAll('p');
 // Get all header elements (h1 to h6)
