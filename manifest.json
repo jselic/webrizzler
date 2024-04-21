@@ -2,7 +2,12 @@
     "manifest_version": 2,
     "name": "Webrizzler",
     "version": "1.0",
-    "description": "Beta to sigma",
+    "description": "Translating to Zoomer-speak and other 'languages'",
+    "icons": {
+        "16": "Logo_16.png",
+        "48": "Logo_48.png",
+        "128": "Logo_128.png"
+    },
     "permissions": [
       "activeTab",
       "<all_urls>",
